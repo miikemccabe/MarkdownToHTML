@@ -19,5 +19,11 @@ function copyToClipBoard() {
 	}, 1000);
 }
 
+function clearAll() {
+	var markdown = document.getElementById('markdown');
+	markdown.innerHTML = "";
+}
 
+
+document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);
