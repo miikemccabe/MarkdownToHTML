@@ -1,0 +1,281 @@
+/*
+*   Defaults and resets
+*/
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/css/fonts/OpenSans-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/css/fonts/OpenSans-Bold.ttf');
+  font-weight: bold;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body { 
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  height: 100%;
+}
+
+kbd {
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    padding: 2px 5px;
+    box-shadow: 1px 1px 0px rgba(0,0,0,.3);
+    text-shadow: 0 1px 0px white;
+}
+
+
+::selection {
+  background: rgba(255, 102, 51, .3);
+}
+
+/*
+*   Page Structure
+*/
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+  flex: 0 0 auto;
+  clear: both;
+  overflow: hidden;
+	padding: 20px;
+	margin: 0;
+	background-color: #f8f8f8;
+	box-shadow: 0 2px 2px #e8e8e8;
+	border-top: solid 1px rgba(0,0,0,.5);
+	border-bottom: solid 1px rgba(0,0,0,.2);
+	position: relative;
+}
+
+#main {
+  flex: 1 1 auto;
+	display: flex;
+	padding: 20px;
+	overflow-y: auto;
+}
+
+footer {
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 10px;
+	background-color: #f8f8f8;
+	border-top: solid 1px rgba(0,0,0,.2);
+}
+
+#list-inputs, #list-result { 
+	height: 100%;
+	width: 50%;
+}
+
+#list-result {
+  margin-left: 20px;
+}
+
+#description {
+	font-size:13px;
+	float: left;
+	color: #555;
+	margin: 0;
+	padding: 0;
+}
+
+#clear {
+  margin-left: 5px;
+}
+
+#copy {
+  margin-right: 5px;
+  float: right;
+}
+
+#result {
+  width: 100%;
+  margin:0;
+  padding: 1em;
+  height: 100%;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  color: #888;
+  white-space: pre;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+#result:focus {
+  outline-color: rgba(255, 102, 51, 1);
+}
+
+#notification {
+    opacity:0;
+    float: right;
+    margin-right: 10px;
+    margin-top: 1em;
+}
+
+/*
+*   <ol> / <ul> control
+*/
+
+#control {
+    position: absolute;
+    right: 55px;
+    top: 15px;
+    font-family: monospace;
+    text-shadow: 0 1px white;
+}
+
+
+#control:before {
+    content: "<ol>";
+    position: absolute;
+    left: -35px;
+    top: 3px;
+    font-size: 16px;
+}
+
+
+#control:after {
+    content: "<ul>";
+    position: absolute;
+    right: -35px;
+    top: 3px;
+    font-size: 16px;
+}
+
+[type="checkbox"] {
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+[type="checkbox"]:focus {
+  outline: none;
+  border: none;
+}
+
+[type="checkbox"]:before {
+  display: block;
+  background-color: #fafafa;
+  box-shadow: 0px 2px 3px rgba(0,0,0,.3);
+  border: solid 1px #eee;
+  width: 20px;
+  height: 20px;
+  content: "";
+  border-radius: 100%;
+  position: relative;
+  top: 0;
+  right: 0px;
+  z-index: 10;
+  -webkit-transition: all .2s ease-out;
+}
+
+[type="checkbox"]:hover:before {
+  box-shadow: 0px 2px 3px rgba(0,0,0,.5);
+  background-color: #fafafa;
+}
+
+[type="checkbox"]:after {
+  display: block;
+  background-color: #ccc;
+  width: 40px;
+  height: 2px;
+  content: "";
+  position: relative;
+  top: -10px;
+  box-shadow: 0 1px 0 white, inset 0 1px 1px rgba(0,0,0,.1);
+}
+
+
+[type=checkbox]:checked:before {
+  position: relative;
+  top: 0;
+  right: -20px;
+  z-index: 10;
+}
+
+/*
+*   list-items
+*/
+
+.list-item:hover,
+.list-item:focus {
+  box-shadow: inset 0px 1px 4px rgba(0,0,0,.2);
+  outline: 0;
+  outline-offset: 0;
+}
+
+.list-item:focus {
+  outline: solid 1px #ccc;
+}
+
+ul {
+  padding-left: 2em;
+  list-style-type: square;
+}
+
+ul.ol {
+  list-style-type: decimal;
+}
+
+li {
+  font-size: 14px;
+  margin-bottom: .3em;
+  padding: 2px;
+  cursor: pointer;
+}
+
+li:focus:hover {
+  cursor: auto;
+}
+
+/*
+*   Buttons
+*/
+
+button {
+  margin: 5px 0px 5px 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border: solid 1px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  background-color: #fafafa;
+  color: #444444;
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
+button:hover {
+  box-shadow: 0 2px 3px rgba(0,0,0,.4);
+}
+
+button.primary {
+  background-color: #ff6633;
+  color: white;
+}
+
+
