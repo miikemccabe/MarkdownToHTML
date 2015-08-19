@@ -134,6 +134,7 @@ footer {
 
 #result {
   white-space: normal;
+  overflow-y: auto;
 }
 
 .header {
@@ -142,6 +143,7 @@ footer {
   margin-top: 0;
 }
 
+#markdown:focus,
 #result:focus {
   outline-color: rgba(255, 102, 51, 1);
 }
@@ -406,10 +408,6 @@ button.primary {
   margin: 1em 0 0 1.5em;
 }
 
-.pretty #result ol li {
-  margin-bottom: 1em;
-}
-
 .pretty #result ol ol {
   list-style-type: lower-roman;
 }
@@ -419,7 +417,9 @@ button.primary {
 }
 
 .pretty #result h5 + ul,
-.pretty #result p + ul {
+.pretty #result p + ul,
+.pretty #result h5 + ol,
+.pretty #result p + ol {
   margin-top: .5em;
 }
 
@@ -445,4 +445,56 @@ button.primary {
 
 .pretty #result strong {
   font-weight: bolder;
+}
+
+.pretty #result table {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.pretty #result th, 
+.pretty #result td {
+  text-align: left;
+  padding: .5em;
+  vertical-align: top;
+  border-bottom: solid 1px #eee;
+}
+
+.pretty #result th {
+  background-color: transparent;
+  font-weight: bold;
+  color: black;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.pretty #result td {
+  color: #555555;
+}
+
+.pretty #result tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.pretty #result td.number {
+  text-align: right;
+}
+
+.pretty #result td.percent {
+  text-align: center;
+}
+
+.pretty #result thead {
+  border-bottom: solid 4px #eee;
+}
+
+.pretty #result tfoot {
+  border-top: solid 4px #eee;
+}
+.pretty #result tfoot th {
+  text-align: right;
+}
+.pretty #result tfoot td {
+  text-align: left;
 }
