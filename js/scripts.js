@@ -71,9 +71,11 @@ document.getElementById("copy").addEventListener('click', copyToClipBoard);
  $('#displayType').on('change', function(){
    if($(this).is(":checked")) {
      $('#output').addClass('raw');
+     $('#output').removeClass('pretty');
      RAW = true;
    } else {
      $('#output').removeClass('raw');
+     $('#output').addClass('pretty');
      RAW = false;
    }
    processMarkdown();

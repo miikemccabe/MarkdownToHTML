@@ -296,4 +296,153 @@ button.primary {
   color: white;
 }
 
+.pretty #result * {
+  font-size: 13px;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
 
+.pretty #result h1 {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  color: black;
+  font-size: 3em;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: .5em;
+  margin-bottom: .8em;
+  line-height: 1em;
+  letter-spacing: -.05em;
+}
+
+.pretty #result h2 {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+  margin: 1.5em 0 1em;
+  font-size: 1.3em;
+  padding-bottom: .5em;
+  padding-left: .5em;
+  border-bottom: solid 8px #eee;
+}
+
+.pretty #result h3 {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 1.5em 0 .3em;
+}
+
+.pretty #result h4, 
+.pretty #result h5 {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  color: black;
+  font-weight: bold;
+  margin: 1em 0 0;
+}
+
+.pretty #result p, 
+.pretty #result li, 
+.pretty #result dd {
+  color: #555555;
+}
+
+.pretty #result p {
+  margin-bottom: 1em;
+  line-height: 1.4em;
+}
+
+.pretty #result a:link, 
+.pretty #result a:visited {
+  color: #e66a2c;
+  text-decoration: none;
+}
+
+.pretty #result a:hover {
+  color: #eb8a5a;
+  text-decoration: underline;
+}
+
+.pretty #result a:active {
+  outline: none !important;
+}
+
+.pretty #result b, 
+.pretty #result strong {
+  font-weight: bold;
+}
+
+.pretty #result em {
+  font-style: italic;
+}
+
+.pretty #result sup {
+	vertical-align: super;
+	font-size: 70%;
+}
+
+.description p {
+  margin-bottom: 1em;
+}
+
+.pretty #result hr {
+  border: 0;
+  border-top: solid 1px #eee;
+  padding: 1em 0;
+}
+
+.pretty #result ul {
+  list-style: square;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.pretty #result ul ul {
+  list-style: circle;
+}
+
+.pretty #result ol {
+  list-style: decimal;
+  margin: 1em 0 0 1.5em;
+}
+
+.pretty #result ol li {
+  margin-bottom: 1em;
+}
+
+.pretty #result ol ol {
+  list-style-type: lower-roman;
+}
+
+.description li {
+  margin-bottom: .5em;
+}
+
+.pretty #result h5 + ul,
+.pretty #result p + ul {
+  margin-top: .5em;
+}
+
+.pretty #result blockquote {
+  color: #1a1a1a;
+  line-height: 1.5em;
+  margin: 10px 0;
+  border-left: solid 6px #e66a2c;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: inherit;
+}
+
+.pretty #result blockquote p {
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.pretty #result s {
+  text-decoration: line-through;
+  color: #8c8c8c;
+  font-weight: normal;
+}
+
+.pretty #result strong {
+  font-weight: bolder;
+}
