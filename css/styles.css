@@ -88,6 +88,7 @@ footer {
 #input, #output { 
   display: flex;
   flex: 1 1 auto;
+  flex-flow: column;
 	max-width: 50%;
 }
 
@@ -114,6 +115,8 @@ footer {
 
 #markdown,
 #result {
+  display: flex;
+  flex: 1 1 auto;
   width: 100%;
   margin:0;
   padding: 1em;
@@ -123,6 +126,12 @@ footer {
   white-space: pre;
   font-family: monospace;
   font-size: 12px;
+}
+
+.header {
+  display: flex;
+  flex: 0 1 auto;
+  margin-top: 0;
 }
 
 #result:focus {
