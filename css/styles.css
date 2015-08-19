@@ -89,7 +89,7 @@ footer {
   display: flex;
   flex: 1 1 auto;
   flex-flow: column;
-	max-width: 50%;
+	width: 50%;
 }
 
 #output {
