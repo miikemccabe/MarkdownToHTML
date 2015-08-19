@@ -86,8 +86,9 @@ footer {
 }
 
 #input, #output { 
-	height: 100%;
-	width: 50%;
+  display: flex;
+  flex: 1 1 auto;
+	max-width: 50%;
 }
 
 #output {
@@ -116,17 +117,12 @@ footer {
   width: 100%;
   margin:0;
   padding: 1em;
-  height: 100%;
   border: 1px solid #eee;
   box-shadow: 1px 1px 2px rgba(0,0,0,.3);
   color: #888;
   white-space: pre;
   font-family: monospace;
   font-size: 12px;
-}
-
-#markdown {
-  height: 250px;
 }
 
 #result:focus {

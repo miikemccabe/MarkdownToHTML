@@ -1,12 +1,36 @@
+/*
+* Marked options
+*
+* https://github.com/chjj/marked
+*/
 
-var KeyCodes = {
-  ENTER : 13,
-  TAB   : 9
+var renderer = new marked.Renderer();
+renderer.paragraph = function(text) {
+  return '<p>' + text + '</p>\n\n';
 };
+
+marked.setOptions({ 
+  renderer: renderer, 
+  gfm: true 
+});
+
+/*
+* Global variables
+*/
 
 var renderedMarkdown = "";
 var markdownTextBox = document.getElementById('markdown');
 var resultDiv = document.getElementById('result');
+
+/*
+* Functions
+*/
+
+function processMarkdown() {
+  resultDiv.innerHTML = ""; // This helps the rendering
+	renderedMarkdown = encode(marked(markdownTextBox.value));
+	resultDiv.innerHTML = renderedMarkdown;
+}
 
 function copyToClipBoard() {
   console.log("copyToClipboard called");
@@ -24,11 +48,8 @@ function copyToClipBoard() {
 }
 
 function clearAll() {
-	var markdown = document.getElementById('markdown');
-	markdown.value = "";
-	var result = document.getElementById('result');
-	
-	result.innerHTML = "";
+	markdownTextBox.value = "";
+	resultDiv.innerHTML = "";
 }
 
 function encode(text) {
@@ -36,24 +57,9 @@ function encode(text) {
   return newText.replace(/>/g, "&gt;");
 }
 
-var renderer = new marked.Renderer();
-renderer.paragraph = function(text) {
-  return '<p>' + text + '</p>\n\n';
-};
-
-marked.setOptions({ 
-  renderer: renderer, 
-  gfm: true 
-});
-
-function processMarkdown() {
-  resultDiv.innerHTML = "";
-	renderedMarkdown = encode(marked(markdownTextBox.value));
-	resultDiv.innerHTML = renderedMarkdown;
-}
-
-
-document.getElementById("markdown").addEventListener('keyup', function(){console.log("Keyup called");});
-document.getElementById("markdown").addEventListener('keyup', processMarkdown);
+/*
+* Add event listeners
+*/
+markdownTextBox.addEventListener('keyup', processMarkdown);
 document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);
