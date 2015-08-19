@@ -21,6 +21,7 @@ marked.setOptions({
 var renderedMarkdown = "";
 var markdownTextBox = document.getElementById('markdown');
 var resultDiv = document.getElementById('result');
+var RAW = true;
 
 /*
 * Functions
@@ -28,15 +29,17 @@ var resultDiv = document.getElementById('result');
 
 function processMarkdown() {
   resultDiv.innerHTML = ""; // This helps the rendering
-	renderedMarkdown = encode(marked(markdownTextBox.value));
+	renderedMarkdown = RAW ? encode(marked(markdownTextBox.value)) : marked(markdownTextBox.value);
 	resultDiv.innerHTML = renderedMarkdown;
 }
 
 function copyToClipBoard() {
-  console.log("copyToClipboard called");
-	var result = document.getElementById('result');
+  $('#displayType').prop('checked', true);
+  $('#output').addClass('raw');
+  RAW = true;
+  processMarkdown();
 	var range = document.createRange();
-	range.selectNodeContents(result);
+	range.selectNodeContents(resultDiv);
 	var sel = window.getSelection();
 	sel.removeAllRanges();
 	sel.addRange(range);
@@ -56,10 +59,22 @@ function encode(text) {
   var newText = text.replace(/</g, "&lt;");
   return newText.replace(/>/g, "&gt;");
 }
-
 /*
 * Add event listeners
 */
 markdownTextBox.addEventListener('keyup', processMarkdown);
 document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);
+
+
+
+ $('#displayType').on('change', function(){
+   if($(this).is(":checked")) {
+     $('#output').addClass('raw');
+     RAW = true;
+   } else {
+     $('#output').removeClass('raw');
+     RAW = false;
+   }
+   processMarkdown();
+ });

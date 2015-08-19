@@ -11,13 +11,16 @@
   <div id="wrapper">
   <header>
     <p id="description">Type <a target="_blank" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">markdown</a> to generate HTML.</p>
+    <div id="control">
+        <input id="displayType" type="checkbox" checked="true">
+    </div>
   </header>
   <section id="main">
     <div id="input">
       <h2 class="header">Markdown</h2>
       <textarea id="markdown" tabindex="1"></textarea>
     </div>
-    <div id="output">
+    <div id="output" class="raw">
       <h2 class="header">HTML</h2>
       <div contenteditable="true" id="result" tabindex="-1"></div>
     </div>

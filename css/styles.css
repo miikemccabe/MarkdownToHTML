@@ -115,7 +115,6 @@ footer {
 
 #markdown,
 #result {
-  display: flex;
   flex: 1 1 auto;
   width: 100%;
   margin:0;
@@ -129,8 +128,12 @@ footer {
   white-space: normal;
 }
 
+.raw #result {
+  white-space: pre-wrap;
+}
+
 #result {
-  white-space: pre-line;
+  white-space: normal;
 }
 
 .header {
@@ -164,16 +167,16 @@ footer {
 
 
 #control:before {
-    content: "<ol>";
+    content: "Pretty";
     position: absolute;
-    left: -35px;
+    left: -55px;
     top: 3px;
     font-size: 16px;
 }
 
 
 #control:after {
-    content: "<ul>";
+    content: "Raw";
     position: absolute;
     right: -35px;
     top: 3px;
