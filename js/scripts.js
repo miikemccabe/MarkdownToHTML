@@ -66,7 +66,14 @@ markdownTextBox.addEventListener('keyup', processMarkdown);
 document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);
 
-
+$('#markdown').bind('paste', function() {
+  var $this = $(this);
+  
+  setTimeout(function() {
+    var val = $this.val();
+    $this.val(val.replace(/\n+/g, '\n\n'));
+  }, 100);
+});
 
  $('#displayType').on('change', function(){
    if($(this).is(":checked")) {
