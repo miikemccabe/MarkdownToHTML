@@ -126,6 +126,11 @@ footer {
   white-space: pre;
   font-family: monospace;
   font-size: 12px;
+  white-space: normal;
+}
+
+#result {
+  white-space: pre-line;
 }
 
 .header {
