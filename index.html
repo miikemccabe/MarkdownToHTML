@@ -12,11 +12,11 @@
     <p id="description">Start typing and press <kbd>enter</kbd> to create a new list item</p>
   </header>
   <section id="main">
-    <ul id="list-inputs"></ul>
-    <div id="list-result">
-      <div contenteditable="true" id="result" tabindex="-1">
-
-      </div>
+    <div id="input">
+      <textarea id="markdown" tabindex="1"></textarea>
+    </div>
+    <div id="output">
+      <div contenteditable="true" id="result" tabindex="-1"></div>
     </div>
   </section>
     <footer>
@@ -25,6 +25,7 @@
       <span id="notification">The HTML has been copied</span>
     </footer>
   </div>
-<script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/marked.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

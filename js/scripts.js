@@ -4,6 +4,10 @@ var KeyCodes = {
   TAB   : 9
 };
 
+var renderedMarkdown = "";
+var markdownTextBox = document.getElementById('markdown');
+var resultDiv = document.getElementById('result');
+
 function copyToClipBoard() {
   console.log("copyToClipboard called");
 	var result = document.getElementById('result');
@@ -21,9 +25,35 @@ function copyToClipBoard() {
 
 function clearAll() {
 	var markdown = document.getElementById('markdown');
-	markdown.innerHTML = "";
+	markdown.value = "";
+	var result = document.getElementById('result');
+	
+	result.innerHTML = "";
+}
+
+function encode(text) {
+  var newText = text.replace(/</g, "&lt;");
+  return newText.replace(/>/g, "&gt;");
+}
+
+var renderer = new marked.Renderer();
+renderer.paragraph = function(text) {
+  return '<p>' + text + '</p>\n\n';
+};
+
+marked.setOptions({ 
+  renderer: renderer, 
+  gfm: true 
+});
+
+function processMarkdown() {
+  resultDiv.innerHTML = "";
+	renderedMarkdown = encode(marked(markdownTextBox.value));
+	resultDiv.innerHTML = renderedMarkdown;
 }
 
 
+document.getElementById("markdown").addEventListener('keyup', function(){console.log("Keyup called");});
+document.getElementById("markdown").addEventListener('keyup', processMarkdown);
 document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);

@@ -85,12 +85,12 @@ footer {
 	border-top: solid 1px rgba(0,0,0,.2);
 }
 
-#list-inputs, #list-result { 
+#input, #output { 
 	height: 100%;
 	width: 50%;
 }
 
-#list-result {
+#output {
   margin-left: 20px;
 }
 
@@ -111,6 +111,7 @@ footer {
   float: right;
 }
 
+#markdown,
 #result {
   width: 100%;
   margin:0;
@@ -122,6 +123,10 @@ footer {
   white-space: pre;
   font-family: monospace;
   font-size: 12px;
+}
+
+#markdown {
+  height: 250px;
 }
 
 #result:focus {
