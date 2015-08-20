@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "HTMLarkdown",
+  "name": "Markdown to HTML",
   "description" : "Simple Markdown to HTML Live editor.",
-  "version": "10",
+  "version": "1.0",
   "minimum_chrome_version": "23",
   "icons": {
     "16": "img/icon_16.png",
