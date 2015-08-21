@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Markdown to HTML",
-  "description" : "Simple Markdown to HTML Live editor.",
+  "description" : "Simple Markdown to HTML editor.\n\nThanks to Christopher Jeffrey (https://github.com/chjj/) as it makes use of his Marked parser.",
   "version": "1.0",
   "minimum_chrome_version": "23",
   "icons": {
