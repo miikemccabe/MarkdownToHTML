@@ -14,7 +14,7 @@
   <header>
     <p id="description">Type <a target="_blank" href="http://daringfireball.net/projects/markdown/basics">markdown</a> to generate HTML.</p>
     <div id="control">
-        <input id="displayType" type="checkbox" checked="true" ng-model="RAW">
+        <input id="displayType" type="checkbox" checked="true" ng-model="RAW" ng-click="updateHtml()">
     </div>
   </header>
   <section id="main">
@@ -22,7 +22,7 @@
       <h2 class="header">Markdown</h2>
       <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
     </div>
-    <div id="output" class="raw">
+    <div id="output" ng-class="RAW ? 'raw' : 'pretty'">
       <h2 class="header">HTML</h2>
       <div contenteditable="true" id="result" tabindex="-1" ng-bind-html="html"></div>
     </div>
