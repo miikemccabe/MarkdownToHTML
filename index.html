@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="markdown" ng-controller="markdownController">
 <head>
 <meta charset="utf-8">
 <title>HTMLarkdown</title>
   <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" src="js/marked.min.js"></script>
   <link href="css/styles.css" rel="stylesheet">
@@ -19,11 +20,11 @@
   <section id="main">
     <div id="input">
       <h2 class="header">Markdown</h2>
-      <textarea id="markdown" tabindex="1"></textarea>
+      <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
     </div>
     <div id="output" class="raw">
       <h2 class="header">HTML</h2>
-      <div contenteditable="true" id="result" tabindex="-1"></div>
+      <div contenteditable="true" id="result" tabindex="-1" ng-bind="html"></div>
     </div>
   </section>
     <footer>
@@ -32,6 +33,6 @@
       <span id="notification">The HTML has been copied</span>
     </footer>
   </div>
-  <script type="text/javascript" src="js/scripts.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

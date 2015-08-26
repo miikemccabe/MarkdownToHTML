@@ -1,3 +1,8 @@
+
+
+
+
+
 /*
 * Marked options
 *
@@ -62,7 +67,7 @@ function encode(text) {
 /*
 * Add event listeners
 */
-markdownTextBox.addEventListener('keyup', processMarkdown);
+//markdownTextBox.addEventListener('keyup', processMarkdown);
 document.getElementById("clear").addEventListener('click', clearAll);
 document.getElementById("copy").addEventListener('click', copyToClipBoard);
 
@@ -87,3 +92,4 @@ $('#markdown').bind('paste', function() {
    }
    processMarkdown();
  });
+ 
