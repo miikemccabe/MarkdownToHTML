@@ -9,9 +9,6 @@ markdown.controller('markdownController', ['$scope', function($scope) {
   };
 }]);
 
-
-
-
 function encode(text) {
   var newText = text.replace(/</g, "&lt;");
   return newText.replace(/>/g, "&gt;");
