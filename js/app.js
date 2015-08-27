@@ -12,6 +12,19 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     $scope.markdown = "";
     $scope.updateHtml();
   };
+  
+  $scope.copyToClipboard = function() {
+    $scope.RAW = true;
+    $scope.updateHtml();
+	  var range = document.createRange();
+	  range.selectNodeContents(document.querySelector('#result'));
+	  var sel = window.getSelection();
+	  sel.removeAllRanges();
+	  sel.addRange(range);
+	  document.execCommand('copy', false, null);
+	  window.getSelection().removeAllRanges();
+  };
+  
 }]);
 
 function encode(text) {
