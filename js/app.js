@@ -13,3 +13,20 @@ function encode(text) {
   var newText = text.replace(/</g, "&lt;");
   return newText.replace(/>/g, "&gt;");
 }
+
+
+/*
+* Marked options
+*
+* https://github.com/chjj/marked
+*/
+
+var renderer = new marked.Renderer();
+renderer.paragraph = function(text) {
+  return '<p>' + text + '</p>\n\n';
+};
+
+marked.setOptions({ 
+  renderer: renderer, 
+  gfm: true 
+});
