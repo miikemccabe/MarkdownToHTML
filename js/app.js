@@ -7,6 +7,11 @@ markdown.controller('markdownController', ['$scope', function($scope) {
   $scope.updateHtml = function() {
     $scope.html = $scope.RAW ? encode(marked($scope.markdown)) : marked($scope.markdown);
   };
+  
+  $scope.clearAll = function() {
+    $scope.markdown = "";
+    $scope.updateHtml();
+  };
 }]);
 
 function encode(text) {
