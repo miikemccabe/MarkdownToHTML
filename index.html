@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="markdown" ng-controller="markdownController">
 <head>
-<meta charset="utf-8">
-<title>HTMLarkdown</title>
+  <meta charset="utf-8">
+  <title>HTMLarkdown</title>
   <script type="text/javascript" src="js/angular.min.js"></script>
   <script type="text/javascript" src="js/angular-sanitize.min.js"></script>
   <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -11,22 +11,22 @@
 </head>
 <body>
   <div id="wrapper">
-  <header>
-    <p id="description">Type <a target="_blank" href="http://daringfireball.net/projects/markdown/basics">markdown</a> to generate HTML.</p>
-    <div id="control">
+    <header>
+      <p id="description">Type <a target="_blank" href="http://daringfireball.net/projects/markdown/basics">markdown</a> to generate HTML.</p>
+      <div id="control">
         <input id="displayType" type="checkbox" checked="true" ng-model="RAW" ng-click="updateHtml()">
-    </div>
-  </header>
-  <section id="main">
-    <div id="input">
-      <h2 class="header">Markdown</h2>
-      <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
-    </div>
-    <div id="output" ng-class="RAW ? 'raw' : 'pretty'">
-      <h2 class="header">HTML</h2>
-      <div contenteditable="true" id="result" tabindex="-1" ng-bind-html="html"></div>
-    </div>
-  </section>
+      </div>
+    </header>
+    <section id="main">
+      <div id="input">
+        <h2 class="header">Markdown</h2>
+        <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
+      </div>
+      <div id="output" ng-class="RAW ? 'raw' : 'pretty'">
+        <h2 class="header">HTML</h2>
+        <div contenteditable="true" id="result" tabindex="-1" ng-bind-html="html"></div>
+      </div>
+    </section>
     <footer>
       <button id="clear" tabindex="-1" ng-click="clearAll()">Clear all</button>
       <button id="copy" class="primary" tabindex="2" ng-click="copyToClipboard()">Copy HTML</button>
