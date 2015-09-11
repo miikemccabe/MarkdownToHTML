@@ -43,8 +43,14 @@ function encode(text) {
 */
 
 var renderer = new marked.Renderer();
+// <p>
 renderer.paragraph = function(text) {
   return '<p>' + text + '</p>\n\n';
+};
+
+// <li>
+renderer.listitem = function(text) {
+  return '  <li>' + text + '</li>\n';
 };
 
 marked.setOptions({ 
