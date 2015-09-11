@@ -198,26 +198,26 @@ footer {
     position: absolute;
     right: 55px;
     top: 15px;
-    font-family: monospace;
+    font-family: inherit;
     text-shadow: 0 1px white;
 }
 
 
 #control:before {
-    content: "Pretty";
+    content: "Preview";
     position: absolute;
-    left: -55px;
+    left: -60px;
     top: 3px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 
 #control:after {
-    content: "Raw";
+    content: "HTML";
     position: absolute;
-    right: -35px;
+    right: -45px;
     top: 3px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 [type="checkbox"] {
