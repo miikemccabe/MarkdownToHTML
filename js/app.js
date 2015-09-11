@@ -53,6 +53,11 @@ renderer.listitem = function(text) {
   return '  <li>' + text + '</li>\n';
 };
 
+// <h1>...<h5>
+renderer.heading = function(text, level) {
+  return '<h' + level + '>' + text + '</h' + level + '>\n';
+};
+
 marked.setOptions({ 
   renderer: renderer, 
   gfm: true 
