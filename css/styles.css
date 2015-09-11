@@ -75,6 +75,7 @@ header {
 	display: flex;
 	padding: 20px;
 	overflow-y: auto;
+	perspective: 1000px;
 }
 
 footer {
@@ -138,10 +139,10 @@ footer {
 }
 
 .pretty #result{
-  animation: flop .1s alternate;
+  animation: flop .2s;
 }
 .raw #result {
-  animation: flip .1s alternate;
+  animation: flip .2s;
 }
 
 @keyframes flip {
