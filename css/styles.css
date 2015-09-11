@@ -149,10 +149,17 @@ footer {
 }
 
 #notification {
-    opacity:0;
+    visibility: hidden;
+    opacity:1;
     float: right;
     margin-right: 10px;
     margin-top: 1em;
+}
+
+#notification.fade {
+    transition: opacity 5s ease-in;
+    opacity: 0;
+    visibility: visible;
 }
 
 /*
