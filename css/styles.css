@@ -137,6 +137,33 @@ footer {
   overflow-y: auto;
 }
 
+.pretty #result{
+  animation: flop .1s alternate;
+}
+.raw #result {
+  animation: flip .1s alternate;
+}
+
+@keyframes flip {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  
+  to {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes flop {
+  from {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  
+  to {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
 .header {
   display: flex;
   flex: 0 1 auto;
