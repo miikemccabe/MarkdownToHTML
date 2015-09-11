@@ -4,6 +4,8 @@ var markdown = angular.module('markdown', ['ngSanitize']);
 
 markdown.controller('markdownController', ['$scope', function($scope) {
   $scope.RAW = true;
+  $scope.html = "";
+  $scope.markdown = "";
   $scope.updateHtml = function() {
     $scope.html = $scope.RAW ? encode(marked($scope.markdown)) : marked($scope.markdown);
   };
