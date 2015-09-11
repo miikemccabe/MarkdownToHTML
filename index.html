@@ -22,7 +22,7 @@
         <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
       </div>
       <div id="output" ng-class="RAW ? 'raw' : 'pretty'">
-        <h2 class="header">HTML</h2>
+        <h2 class="header">{{header}}</h2>
         <div contenteditable="true" id="result" tabindex="-1" ng-bind-html="html"></div>
       </div>
     </section>

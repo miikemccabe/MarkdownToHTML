@@ -6,8 +6,15 @@ markdown.controller('markdownController', ['$scope', function($scope) {
   $scope.RAW = true;
   $scope.html = "";
   $scope.markdown = "";
+  $scope.header = "HTML";
   $scope.updateHtml = function() {
-    $scope.html = $scope.RAW ? encode(marked($scope.markdown)) : marked($scope.markdown);
+    if($scope.RAW) {
+      $scope.html = encode(marked($scope.markdown));
+      $scope.header = "HTML";
+    } else {
+      $scope.html = marked($scope.markdown);
+      $scope.header = "Preview";
+    }
   };
   
   $scope.clearAll = function() {
