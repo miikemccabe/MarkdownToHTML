@@ -75,7 +75,7 @@ header {
 	display: flex;
 	padding: 20px;
 	overflow-y: auto;
-	perspective: 1000px;
+	perspective: 400vh;
 }
 
 footer {
