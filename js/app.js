@@ -23,16 +23,11 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     $scope.updateHtml();
   };
   
-  $scope.copyToClipboard = function() {
-    $scope.RAW = true;
+  $scope.handleCopyClick = function() {
     $scope.updateHtml();
-	  var range = document.createRange();
-	  range.selectNodeContents(document.querySelector('#result'));
-	  var sel = window.getSelection();
-	  sel.removeAllRanges();
-	  sel.addRange(range);
-	  document.execCommand('copy', false, null);
-	  window.getSelection().removeAllRanges();
+    $scope.RAW = true;
+    
+    copyToClipboard();
 	  
     if($scope.htmlCopied === true) {
         clearTimeout($scope.copyTimeout);
@@ -48,6 +43,16 @@ markdown.controller('markdownController', ['$scope', function($scope) {
   
   
 }]);
+
+function copyToClipboard() {
+	  var range = document.createRange();
+	  range.selectNodeContents(document.querySelector('#result'));
+	  var sel = window.getSelection();
+	  sel.removeAllRanges();
+	  sel.addRange(range);
+	  document.execCommand('copy', false, null);
+	  window.getSelection().removeAllRanges();
+}
 
 function encode(text) {
   var newText = text.replace(/</g, "&lt;");

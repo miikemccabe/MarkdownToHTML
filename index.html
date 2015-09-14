@@ -18,7 +18,7 @@
     </header>
     <section id="main">
       <div id="input">
-        <h2 class="header" ng-click="console.log(htmlCopied)">Markdown</h2>
+        <h2 class="header">Markdown</h2>
         <textarea id="markdown" tabindex="1" ng-keyup="updateHtml()" ng-model="markdown"></textarea>
       </div>
       <div id="output" ng-class="RAW ? 'raw' : 'pretty'">
@@ -28,7 +28,7 @@
     </section>
     <footer>
       <button id="clear" tabindex="-1" ng-click="clearAll()">Clear all</button>
-      <button id="copy" class="primary" tabindex="2" ng-click="copyToClipboard()">Copy HTML</button>
+      <button id="copy" class="primary" tabindex="2" ng-click="handleCopyClick()">Copy HTML</button>
       <span id="notification" ng-show="htmlCopied" ng-class="{'fadeOut':htmlCopied}">The HTML has been copied</span>
     </footer>
   </div>
