@@ -190,7 +190,7 @@ footer {
 
 
 .fadeOut {
-    animation: fadeOut 5s ease-out;
+    animation: fadeOut 5s ease-in;
 }
 
 /*
