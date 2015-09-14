@@ -37,8 +37,7 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     if($scope.htmlCopied === true) {
         clearTimeout($scope.copyTimeout);
     }
-	  
-	  var notification = document.querySelector('#notification');
+    
 	  $scope.htmlCopied = true;
 	  
 	  $scope.copyTimeout = setTimeout(function() {
