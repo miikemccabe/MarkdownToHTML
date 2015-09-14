@@ -177,17 +177,20 @@ footer {
 }
 
 #notification {
-    visibility: hidden;
-    opacity:1;
     float: right;
     margin-right: 10px;
     margin-top: 1em;
 }
 
-#notification.fade {
-    transition: opacity 5s ease-in;
-    opacity: 0;
-    visibility: visible;
+
+@keyframes fadeOut {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+
+.fadeOut {
+    animation: fadeOut 5s ease-out;
 }
 
 /*

@@ -7,6 +7,7 @@ markdown.controller('markdownController', ['$scope', function($scope) {
   $scope.html = "";
   $scope.markdown = "";
   $scope.header = "HTML";
+  $scope.htmlCopied = false;
   $scope.updateHtml = function() {
     if($scope.RAW) {
       $scope.html = encode(marked($scope.markdown));
@@ -33,16 +34,19 @@ markdown.controller('markdownController', ['$scope', function($scope) {
 	  document.execCommand('copy', false, null);
 	  window.getSelection().removeAllRanges();
 	  
-	  var notification = document.querySelector('#notification');
-	  notification.className = "fade";
+    if($scope.htmlCopied === true) {
+        clearTimeout($scope.copyTimeout);
+    }
 	  
-	  if($scope.notifyTimeout !== undefined) {
-	    clearTimeout($scope.notifyTimeout);
-	  }
-	  $scope.notifyTimeout = setTimeout(function() {
-	    notification.className = "";
+	  var notification = document.querySelector('#notification');
+	  $scope.htmlCopied = true;
+	  
+	  $scope.copyTimeout = setTimeout(function() {
+	    $scope.htmlCopied = false;
+      $scope.$apply();
 	  }, 5000);
   };
+  
   
 }]);
 
