@@ -14,7 +14,6 @@ markdown.controller('markdownController', ['$scope', '$timeout', function($scope
   
   // If notifications is updated we need to display notifications
   $scope.$watch('notifications', function() {
-      console.info('notifications changed');
       angular.forEach($scope.notifications, function(val, key) {
         if(val === true) {
           startNotificationTimeout();
@@ -37,7 +36,6 @@ markdown.controller('markdownController', ['$scope', '$timeout', function($scope
   $scope.handleClearAllClick = function() {
     $scope.markdown = "";
     $scope.updateHtml();
-	  $scope.notifications.cleared = true;
   };
   
   $scope.handleCopyClick = function() {
