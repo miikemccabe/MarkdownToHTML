@@ -189,7 +189,7 @@ footer {
 }
 
 
-.fadeOut {
+#notification.ng-active {
     animation: fadeOut 5s ease-in;
 }
 
