@@ -65,7 +65,12 @@ markdown.controller('markdownController', ['$scope', '$timeout', function($scope
   }
   
   
-}]);
+}])
+.directive('resultswitch', function() {
+  return {
+    templateUrl: 'resultswitch.html'
+  };
+});
 
 function copyToClipboard() {
 	  var range = document.createRange();

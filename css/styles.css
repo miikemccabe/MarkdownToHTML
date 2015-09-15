@@ -205,22 +205,22 @@ footer {
     text-shadow: 0 1px white;
 }
 
-
-#control:before {
-    content: "Preview";
+.switchlabel {
     position: absolute;
-    left: -60px;
     top: 3px;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.switchlabel.off {
+    content: "Preview";
+    left: -60px;
 }
 
 
-#control:after {
+.switchlabel.on {
     content: "HTML";
-    position: absolute;
     right: -45px;
-    top: 3px;
-    font-size: 14px;
 }
 
 [type="checkbox"] {
