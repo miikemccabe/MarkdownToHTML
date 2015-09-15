@@ -2,13 +2,12 @@
  
 var markdown = angular.module('markdown', ['ngSanitize', 'ngMessages']);
 
-markdown.controller('markdownController', ['$scope', function($scope) {
+markdown.controller('markdownController', ['$scope', '$timeout', function($scope, $timeout) {
   var notificationTimeout;
   $scope.RAW = true;
   $scope.html = "";
   $scope.markdown = "";
   $scope.header = "HTML";
-  $scope.htmlCopied = false;
   $scope.notifications = {
     "copied": false
   };
@@ -35,19 +34,21 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     }
   };
   
-  $scope.handleClearAll = function() {
+  $scope.handleClearAllClick = function() {
     $scope.markdown = "";
     $scope.updateHtml();
 	  $scope.notifications.cleared = true;
   };
   
   $scope.handleCopyClick = function() {
-    $scope.updateHtml();
     $scope.RAW = true;
-    
-    copyToClipboard();
-    
+    $scope.updateHtml(copyToClipboard);
 	  $scope.notifications.copied = true;
+    
+    // Marked in updateHtml is async so we delay
+    // this slightly to ensure we have the latest
+    // HTML before copying
+    $timeout(copyToClipboard, 500);
   };
   
   function startNotificationTimeout() {
