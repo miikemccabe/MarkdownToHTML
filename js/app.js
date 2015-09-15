@@ -1,13 +1,30 @@
 
  
-var markdown = angular.module('markdown', ['ngSanitize']);
+var markdown = angular.module('markdown', ['ngSanitize', 'ngMessages']);
 
 markdown.controller('markdownController', ['$scope', function($scope) {
+  var notificationTimeout;
   $scope.RAW = true;
   $scope.html = "";
   $scope.markdown = "";
   $scope.header = "HTML";
   $scope.htmlCopied = false;
+  $scope.notifications = {
+    "copied": false
+  };
+  
+  // If notifications is updated we need to display notifications
+  $scope.$watch('notifications', function() {
+      console.info('notifications changed');
+      angular.forEach($scope.notifications, function(val, key) {
+        if(val === true) {
+          startNotificationTimeout();
+        }
+          return;
+      });
+  }, true);
+  
+  
   $scope.updateHtml = function() {
     if($scope.RAW) {
       $scope.html = encode(marked($scope.markdown));
@@ -18,9 +35,10 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     }
   };
   
-  $scope.clearAll = function() {
+  $scope.handleClearAll = function() {
     $scope.markdown = "";
     $scope.updateHtml();
+	  $scope.notifications.cleared = true;
   };
   
   $scope.handleCopyClick = function() {
@@ -28,18 +46,24 @@ markdown.controller('markdownController', ['$scope', function($scope) {
     $scope.RAW = true;
     
     copyToClipboard();
-	  
-    if($scope.htmlCopied === true) {
-        clearTimeout($scope.copyTimeout);
-    }
     
-	  $scope.htmlCopied = true;
-	  
-	  $scope.copyTimeout = setTimeout(function() {
-	    $scope.htmlCopied = false;
-      $scope.$apply();
-	  }, 5000);
+	  $scope.notifications.copied = true;
   };
+  
+  function startNotificationTimeout() {
+      clearTimeout(notificationTimeout);
+      notificationTimeout = setTimeout(function() {
+          resetNotifications();
+          $scope.$apply();
+	     }, 5000);
+  }
+  
+  // Reset all notifications to false
+  function resetNotifications() {
+      angular.forEach($scope.notifications, function(val, key) {
+        $scope.notifications[key] = false;
+      });
+  }
   
   
 }]);
