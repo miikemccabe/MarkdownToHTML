@@ -42,7 +42,7 @@ markdown.controller('markdownController', ['$scope', '$timeout', function($scope
   
   $scope.handleCopyClick = function() {
     $scope.RAW = true;
-    $scope.updateHtml(copyToClipboard);
+    $scope.updateHtml();
 	  $scope.notifications.copied = true;
     
     // Marked in updateHtml is async so we delay
